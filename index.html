@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Axon AI · Voice agent for real estate</title>
+  <!-- Google Fonts: Inter weights 400, 500, 600 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <style>
+    /* ----- RESET & BASE ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #FAFAFA;
+      color: #1E293B;
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* ----- TYPOGRAPHY & SPACING ----- */
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.25rem; /* 36px mobile */
+    }
+
+    h2 {
+      font-size: 2rem; /* 32px mobile */
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      color: #0F172A;
+    }
+
+    p {
+      color: #334155;
+      font-size: 1.05rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ----- HEADER / LOGO ----- */
+    .logo {
+      font-weight: 600;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      color: #2563EB;
+      text-decoration: none;
+      display: inline-block;
+      padding: 1.2rem 0;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 20;
+      background: transparent;
+    }
+
+    /* ----- HERO SECTION ----- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F0F4FF 100%);
+      position: relative;
+      padding-top: 4rem;
+      padding-bottom: 2rem;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      margin-bottom: 1.5rem;
+      color: #0F172A;
+    }
+
+    .hero-text p {
+      font-size: 1.15rem;
+      margin-bottom: 2.2rem;
+      color: #475569;
+      max-width: 480px;
+    }
+
+    /* CTA Button */
+    .cta-button {
+      background: #2563EB;
+      color: white;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.9rem 2.2rem;
+      border-radius: 40px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      letter-spacing: -0.01em;
+      animation: softPulse 3s infinite ease-in-out;
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+    .cta-button:hover {
+      background: #1D4ED8;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+      transform: translateY(-1px);
+    }
+
+    @keyframes softPulse {
+      0% { box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); }
+      50% { box-shadow: 0 6px 22px rgba(37, 99, 235, 0.45); }
+      100% { box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); }
+    }
+
+    /* Abstract geometry (right side on desktop) */
+    .hero-graphic {
+      display: none;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #64748B;
+    }
+
+    .scroll-arrow {
+      width: 18px;
+      height: 18px;
+      border-right: 2px solid #64748B;
+      border-bottom: 2px solid #64748B;
+      transform: rotate(45deg);
+    }
+
+    /* ----- MID-PAGE DEMO BANNER ----- */
+    .demo-banner {
+      background: #FFFFFF;
+      border-top: 1px solid #E2E8F0;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 2.5rem 0;
+      margin: 2rem 0 0;
+      text-align: center;
+    }
+
+    .demo-banner-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .demo-banner-text {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #0F172A;
+      letter-spacing: -0.02em;
+    }
+
+    /* ----- HOW IT WORKS SECTION ----- */
+    .how-section {
+      padding: 5rem 0;
+      background-color: #FAFAFA;
+    }
+
+    .cards-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      margin-bottom: 1.8rem;
+      width: 44px;
+      height: 44px;
+      color: #2563EB;
+      stroke: #2563EB;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      color: #0F172A;
+    }
+
+    .card p {
+      color: #475569;
+      font-size: 0.98rem;
+    }
+
+    /* ----- PILOT SECTION ----- */
+    .pilot-section {
+      background: #F1F5F9;
+      padding: 5rem 0;
+    }
+
+    .pilot-block {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pilot-block h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pilot-block p {
+      font-size: 1.15rem;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    /* ----- CONTACT / FOOTER ----- */
+    .contact-section {
+      padding: 5rem 0 4rem;
+      background: #FAFAFA;
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-name {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0F172A;
+      margin: 1.2rem 0 0.8rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+      color: #1E293B;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .contact-link {
+      color: #2563EB;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+      transition: border-color 0.2s;
+      line-height: 1.4;
+    }
+
+    .contact-link:hover {
+      border-bottom-color: #2563EB;
+    }
+
+    .whatsapp-icon {
+      width: 22px;
+      height: 22px;
+      color: #25D366;
+      flex-shrink: 0;
+    }
+
+    .demo-inline-btn {
+      background: none;
+      border: 1.5px solid #2563EB;
+      color: #2563EB;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.5rem 1.4rem;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+      margin-left: 0.5rem;
+      background: white;
+    }
+
+    .demo-inline-btn:hover {
+      background: #2563EB;
+      color: white;
+    }
+
+    .contact-note {
+      color: #64748B;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      font-weight: 400;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #E2E8F0;
+      margin: 2rem 0 0;
+    }
+
+    .footer-fineprint {
+      font-size: 0.8rem;
+      color: #94A3B8;
+      margin-top: 1.2rem;
+    }
+
+    /* ----- ANIMATION UTILITIES ----- */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered delays for cards */
+    .card-delay-1 { transition-delay: 0.1s; }
+    .card-delay-2 { transition-delay: 0.25s; }
+    .card-delay-3 { transition-delay: 0.4s; }
+
+    /* Hero initial animation (applied on load via class) */
+    .hero-title-init {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-sub-init {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.7s 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-btn-init {
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.7s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ----- RESPONSIVE (tablet/desktop >768px) ----- */
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 3.5rem; /* 56px */
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+      .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+      }
+
+      .hero {
+        min-height: 80vh;
+        padding-top: 2rem;
+      }
+
+      .hero-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .hero-text {
+        max-width: 550px;
+      }
+
+      /* Abstract geometry appears */
+      .hero-graphic {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 320px;
+        height: 320px;
+        position: relative;
+      }
+
+      .abstract-circles {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .circle {
+        position: absolute;
+        border-radius: 50%;
+        border: 1.5px solid rgba(37, 99, 235, 0.2);
+        background: radial-gradient(circle at 30% 30%, rgba(191, 219, 254, 0.3), rgba(224, 242, 254, 0.05));
+        backdrop-filter: blur(2px);
+      }
+
+      .circle-1 {
+        width: 220px;
+        height: 220px;
+        top: 10px;
+        left: 30px;
+      }
+      .circle-2 {
+        width: 160px;
+        height: 160px;
+        bottom: 20px;
+        right: 10px;
+        border-color: rgba(37, 99, 235, 0.25);
+        background: radial-gradient(circle at 50% 50%, rgba(147, 197, 253, 0.25), transparent);
+      }
+      .circle-3 {
+        width: 100px;
+        height: 100px;
+        top: 70px;
+        right: 40px;
+        border-color: rgba(37, 99, 235, 0.35);
+        background: rgba(219, 234, 254, 0.4);
+      }
+
+      .cards-grid {
+        flex-direction: row;
+        gap: 1.5rem;
+      }
+
+      .card {
+        flex: 1;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      
+      .demo-banner-text {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-graphic {
+        width: 380px;
+        height: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="#" class="logo">Axon AI</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title-init">Voice AI That Calls Leads in 10 Seconds. 24/7.</h1>
+          <p class="hero-sub-init">Your website captures the lead. Our AI calls them before your competitors finish loading the page.</p>
+          <a href="https://wa.me/79029319839" target="_blank" rel="noopener noreferrer" class="cta-button hero-btn-init">See It in Action</a>
+        </div>
+        <div class="hero-graphic">
+          <!-- Abstract geometry: three intersecting circles with soft blue gradients -->
+          <div class="abstract-circles">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>SCROLL</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- Mid-page Demo Banner (prominent) -->
+    <div class="demo-banner fade-up">
+      <div class="container demo-banner-inner">
+        <p class="demo-banner-text">See how Axon AI handles real leads</p>
+        <a href="https://wa.me/79029319839" target="_blank" rel="noopener noreferrer" class="cta-button" style="animation: softPulse 3s infinite ease-in-out;">Request a demo</a>
+      </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <section class="how-section" id="how">
+      <div class="container">
+        <h2 class="section-title fade-up">How It Works</h2>
+        <div class="cards-grid">
+          <!-- Card 1: updated wording -->
+          <div class="card fade-up card-delay-1">
+            <svg class="card-icon" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+            <h3>A lead submits a form</h3>
+            <p>Visitor leaves a request on your website. The data is instantly sent to your database and triggers the AI workflow.</p>
+          </div>
+          <!-- Card 2: expanded description about consulting & closing -->
+          <div class="card fade-up card-delay-2">
+            <svg class="card-icon" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <h3>AI calls within 10 seconds</h3>
+            <p>The AI consults the lead like a top sales manager: it instantly shares matching apartment options during the call and uses closing techniques to book a viewing.</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="card fade-up card-delay-3">
+            <svg class="card-icon" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+              <polyline points="9 16 11 18 15 14" />
+            </svg>
+            <h3>Viewing is booked</h3>
+            <p>Confirmed appointment lands in your calendar. You get a notification. No manual dialing, no missed opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pilot Proposition Section -->
+    <section class="pilot-section" id="pilot">
+      <div class="container">
+        <div class="pilot-block fade-up">
+          <h2>Pilot Before You Pay</h2>
+          <p>
+            We don't sell subscriptions. You test the AI on your leads. If it books showings — you pay. 
+            If not — you don't. Setup takes 24 hours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Footer Section -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-content fade-up">
+          <h2>Ready to see it handle your leads?</h2>
+          <div class="contact-name">Nick</div>
+          <div class="contact-links">
+            <!-- WhatsApp contact with phone icon and demo button -->
+            <div class="contact-item">
+              <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+              </svg>
+              <span>WhatsApp</span>
+              <a href="https://wa.me/79029319839" target="_blank" rel="noopener noreferrer" class="contact-link" style="font-weight: 500;">+7 902 931 98 39</a>
+              <a href="https://wa.me/79029319839" target="_blank" rel="noopener noreferrer" class="demo-inline-btn">Request demo</a>
+            </div>
+            <!-- Telegram updated to @WakanaMK -->
+            <div class="contact-item">
+              <span>Telegram</span>
+              <a href="https://t.me/WakanaMK" target="_blank" rel="noopener noreferrer" class="contact-link">@WakanaMK</a>
+            </div>
+          </div>
+          <div class="contact-note">
+            Discover the pilot version of the product. A 40‑second demo will give you a quick overview — try it risk‑free.
+          </div>
+        </div>
+        <hr>
+        <div class="footer-fineprint" style="text-align: center;">
+          Axon AI · Voice assistant for real estate teams
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Minimal JavaScript for scroll animations (Intersection Observer) -->
+  <script>
+    (function() {
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -30px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const fadeElements = document.querySelectorAll('.fade-up');
+      fadeElements.forEach(el => observer.observe(el));
+
+      // Smooth scroll for any internal links (if added later)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === "#" || !href) return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
