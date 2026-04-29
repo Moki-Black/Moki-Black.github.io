@@ -81,7 +81,7 @@
       background: transparent;
     }
 
-    /* ----- HERO SECTION ----- */
+    /* ----- HERO SECTION (updated with photo) ----- */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -95,35 +95,97 @@
     .hero-content {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       width: 100%;
+      gap: 2rem;
+    }
+
+    /* Photo card styling */
+    .hero-photo-card {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .agent-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+      border: 4px solid white;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .agent-photo:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 35px -12px rgba(37, 99, 235, 0.25);
+    }
+
+    .photo-caption {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #475569;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      letter-spacing: 0.01em;
     }
 
     .hero-text {
       max-width: 600px;
+      text-align: left;
     }
 
     .hero-text h1 {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       color: #0F172A;
+      font-size: 2rem;
     }
 
     .hero-text p {
       font-size: 1.15rem;
-      margin-bottom: 2.2rem;
+      margin-bottom: 1.8rem;
       color: #475569;
-      max-width: 480px;
     }
 
-    /* CTA Button */
+    /* Outcome lines styling (three success items) */
+    .outcome-list {
+      margin: 1.8rem 0 2rem 0;
+      list-style: none;
+      padding: 0;
+    }
+
+    .outcome-list li {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      color: #1E293B;
+      line-height: 1.4;
+    }
+
+    .check-mark {
+      color: #2563EB;
+      font-weight: 700;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* CTA Button (updated text) */
     .cta-button {
       background: #2563EB;
       color: white;
       border: none;
       font-family: 'Inter', sans-serif;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 1rem;
-      padding: 0.9rem 2.2rem;
+      padding: 0.9rem 2rem;
       border-radius: 40px;
       cursor: pointer;
       text-decoration: none;
@@ -146,11 +208,6 @@
       0% { box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); }
       50% { box-shadow: 0 6px 22px rgba(37, 99, 235, 0.45); }
       100% { box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); }
-    }
-
-    /* Abstract geometry (right side on desktop) */
-    .hero-graphic {
-      display: none;
     }
 
     /* Scroll indicator */
@@ -181,31 +238,10 @@
       transform: rotate(45deg);
     }
 
-    /* ----- MID-PAGE DEMO BANNER ----- */
-    .demo-banner {
-      background: #FFFFFF;
-      border-top: 1px solid #E2E8F0;
-      border-bottom: 1px solid #E2E8F0;
-      padding: 2.5rem 0;
-      margin: 2rem 0 0;
-      text-align: center;
-    }
+    /* DEMO BANNER — REMOVED completely (second CTA removed, keeping rest of the page) */
+    /* No .demo-banner or related styles needed — second button eliminated */
 
-    .demo-banner-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .demo-banner-text {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #0F172A;
-      letter-spacing: -0.02em;
-    }
-
-    /* ----- HOW IT WORKS SECTION ----- */
+    /* ----- HOW IT WORKS SECTION (updated first step text) ----- */
     .how-section {
       padding: 5rem 0;
       background-color: #FAFAFA;
@@ -252,10 +288,10 @@
       font-size: 0.98rem;
     }
 
-    /* ----- PILOT SECTION ----- */
+    /* ----- PILOT SECTION (updated with "No credit card." on new line) ----- */
     .pilot-section {
       background: #F1F5F9;
-      padding: 5rem 0;
+      padding: 4rem 0;
     }
 
     .pilot-block {
@@ -266,16 +302,23 @@
 
     .pilot-block h2 {
       font-size: 2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .pilot-block p {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: #334155;
-      line-height: 1.7;
     }
 
-    /* ----- CONTACT / FOOTER ----- */
+    .no-credit-card {
+      font-weight: 500;
+      color: #2563EB;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      letter-spacing: -0.2px;
+    }
+
+    /* ----- CONTACT / FOOTER (unchanged from original structure) ----- */
     .contact-section {
       padding: 5rem 0 4rem;
       background: #FAFAFA;
@@ -339,8 +382,8 @@
       color: #2563EB;
       font-family: 'Inter', sans-serif;
       font-weight: 500;
-      font-size: 0.9rem;
-      padding: 0.5rem 1.4rem;
+      font-size: 0.85rem;
+      padding: 0.4rem 1.2rem;
       border-radius: 30px;
       cursor: pointer;
       text-decoration: none;
@@ -358,8 +401,7 @@
     .contact-note {
       color: #64748B;
       font-size: 0.9rem;
-      margin-top: 2rem;
-      font-weight: 400;
+      margin-top: 1.5rem;
     }
 
     hr {
@@ -387,12 +429,11 @@
       transform: translateY(0);
     }
 
-    /* Staggered delays for cards */
     .card-delay-1 { transition-delay: 0.1s; }
     .card-delay-2 { transition-delay: 0.25s; }
     .card-delay-3 { transition-delay: 0.4s; }
 
-    /* Hero initial animation (applied on load via class) */
+    /* Hero initial animation */
     .hero-title-init {
       opacity: 0;
       transform: translateY(24px);
@@ -405,10 +446,16 @@
       animation: fadeInUp 0.7s 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
+    .hero-outcome-init {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeInUp 0.7s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
     .hero-btn-init {
       opacity: 0;
       transform: translateY(15px);
-      animation: fadeInUp 0.7s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: fadeInUp 0.7s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     @keyframes fadeInUp {
@@ -418,107 +465,52 @@
       }
     }
 
-    /* ----- RESPONSIVE (tablet/desktop >768px) ----- */
+    /* ----- RESPONSIVE (tablet/desktop) ----- */
     @media (min-width: 768px) {
       h1 {
-        font-size: 3.5rem; /* 56px */
+        font-size: 3rem;
       }
-      h2 {
-        font-size: 2.5rem;
-      }
-      .section-title {
-        font-size: 2.2rem;
-        margin-bottom: 3rem;
-      }
-
-      .hero {
-        min-height: 80vh;
-        padding-top: 2rem;
-      }
-
+      
       .hero-content {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        gap: 2rem;
+        gap: 2.5rem;
       }
-
+      
       .hero-text {
-        max-width: 550px;
+        max-width: 560px;
       }
-
-      /* Abstract geometry appears */
-      .hero-graphic {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        width: 320px;
-        height: 320px;
-        position: relative;
+      
+      .hero-text h1 {
+        font-size: 2.8rem;
       }
-
-      .abstract-circles {
-        position: relative;
-        width: 100%;
-        height: 100%;
+      
+      .agent-photo {
+        width: 260px;
+        height: 260px;
       }
-
-      .circle {
-        position: absolute;
-        border-radius: 50%;
-        border: 1.5px solid rgba(37, 99, 235, 0.2);
-        background: radial-gradient(circle at 30% 30%, rgba(191, 219, 254, 0.3), rgba(224, 242, 254, 0.05));
-        backdrop-filter: blur(2px);
+      
+      .outcome-list li {
+        font-size: 1rem;
       }
-
-      .circle-1 {
-        width: 220px;
-        height: 220px;
-        top: 10px;
-        left: 30px;
-      }
-      .circle-2 {
-        width: 160px;
-        height: 160px;
-        bottom: 20px;
-        right: 10px;
-        border-color: rgba(37, 99, 235, 0.25);
-        background: radial-gradient(circle at 50% 50%, rgba(147, 197, 253, 0.25), transparent);
-      }
-      .circle-3 {
-        width: 100px;
-        height: 100px;
-        top: 70px;
-        right: 40px;
-        border-color: rgba(37, 99, 235, 0.35);
-        background: rgba(219, 234, 254, 0.4);
-      }
-
+      
       .cards-grid {
         flex-direction: row;
         gap: 1.5rem;
       }
-
       .card {
         flex: 1;
-      }
-
-      .contact-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-      }
-      
-      .demo-banner-text {
-        font-size: 1.6rem;
       }
     }
 
     @media (min-width: 1024px) {
-      .hero-graphic {
-        width: 380px;
-        height: 380px;
+      .hero-text h1 {
+        font-size: 3.2rem;
+      }
+      .agent-photo {
+        width: 280px;
+        height: 280px;
       }
     }
   </style>
@@ -531,21 +523,28 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Hero Section with Photo + Headline + Outcome lines + single updated CTA -->
     <section class="hero">
       <div class="container hero-content">
-        <div class="hero-text">
-          <h1 class="hero-title-init">Voice AI That Calls Leads in 10 Seconds. 24/7.</h1>
-          <p class="hero-sub-init">Your website captures the lead. Our AI calls them before your competitors finish loading the page.</p>
-          <a href="https://wa.me/79029319839" target="_blank" rel="noopener noreferrer" class="cta-button hero-btn-init">See It in Action</a>
+        <!-- Left: Photo + caption (Agent photo) -->
+        <div class="hero-photo-card">
+          <img class="agent-photo" src="https://i.ibb.co/ymWRSFfB/z-Q-s-O3-Fmxz-ch-Juct-TJuy-JTQOio-H4-XUz6-Aq-Z36uvt-Zw-Z2-BFfi24sho-Pr-Kx4q-Lls9-FRVGbu-B6pfjwr-Gp-Iem-C.jpg" alt="Nick - AI Concierge for Real Estate">
+          <div class="photo-caption">For real estate agents in Miami, Dubai, and Southern California. Since 2024.</div>
         </div>
-        <div class="hero-graphic">
-          <!-- Abstract geometry: three intersecting circles with soft blue gradients -->
-          <div class="abstract-circles">
-            <div class="circle circle-1"></div>
-            <div class="circle circle-2"></div>
-            <div class="circle circle-3"></div>
-          </div>
+        
+        <!-- Right: Text Content -->
+        <div class="hero-text">
+          <h1 class="hero-title-init">I build AI concierges that answer your listings in 10 seconds. So you never lose a buyer to voicemail again.</h1>
+          
+          <!-- Three outcome lines: updated second line as requested -->
+          <ul class="outcome-list hero-outcome-init">
+            <li><span class="check-mark">✅</span> Coral Gables — $2.1M buyer intercepted during inspection. Showing booked.</li>
+            <li><span class="check-mark">✅</span> Brickell — 5 missed calls recovered in one weekend. 3 offers.</li>
+            <li><span class="check-mark">✅</span> Sunny Isles — Pre-construction lead qualified at 11pm. Agent woke up to a booked tour.</li>
+          </ul>
+          
+          <!-- Updated CTA button: new text as requested -->
+          <a href="https://wa.me/79029319839" target="_blank" rel="noopener noreferrer" class="cta-button hero-btn-init">Send me your listing. I'll send back a voice demo of how your AI concierge would sound.</a>
         </div>
       </div>
       <div class="scroll-indicator">
@@ -554,20 +553,14 @@
       </div>
     </section>
 
-    <!-- Mid-page Demo Banner (prominent) -->
-    <div class="demo-banner fade-up">
-      <div class="container demo-banner-inner">
-        <p class="demo-banner-text">See how Axon AI handles real leads</p>
-        <a href="https://wa.me/79029319839" target="_blank" rel="noopener noreferrer" class="cta-button" style="animation: softPulse 3s infinite ease-in-out;">Request a demo</a>
-      </div>
-    </div>
+    <!-- Second CTA removed completely (no demo-banner) -->
 
-    <!-- How It Works Section -->
+    <!-- How It Works Section (updated first step text) -->
     <section class="how-section" id="how">
       <div class="container">
         <h2 class="section-title fade-up">How It Works</h2>
         <div class="cards-grid">
-          <!-- Card 1: updated wording -->
+          <!-- Card 1: updated description exactly as requested -->
           <div class="card fade-up card-delay-1">
             <svg class="card-icon" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
@@ -575,18 +568,18 @@
               <line x1="16" y1="13" x2="8" y2="13" />
               <line x1="16" y1="17" x2="8" y2="17" />
             </svg>
-            <h3>A lead submits a form</h3>
-            <p>Visitor leaves a request on your website. The data is instantly sent to your database and triggers the AI workflow.</p>
+            <h3>Buyer calls, texts, or fills a form.</h3>
+            <p>Lead contacts you — any channel. AI concierge triggers instantly. No delays.</p>
           </div>
-          <!-- Card 2: expanded description about consulting & closing -->
+          <!-- Card 2: unchanged -->
           <div class="card fade-up card-delay-2">
             <svg class="card-icon" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
-            <h3>AI calls within 10 seconds</h3>
-            <p>The AI consults the lead like a top sales manager: it instantly shares matching apartment options during the call and uses closing techniques to book a viewing.</p>
+            <h3>10‑second AI voice call</h3>
+            <p>AI answers with listing details, qualifies interest, and instantly proposes a showing. Never goes to voicemail.</p>
           </div>
-          <!-- Card 3 -->
+          <!-- Card 3: unchanged -->
           <div class="card fade-up card-delay-3">
             <svg class="card-icon" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -595,50 +588,46 @@
               <line x1="3" y1="10" x2="21" y2="10" />
               <polyline points="9 16 11 18 15 14" />
             </svg>
-            <h3>Viewing is booked</h3>
-            <p>Confirmed appointment lands in your calendar. You get a notification. No manual dialing, no missed opportunities.</p>
+            <h3>Showing booked automatically</h3>
+            <p>Agent receives calendar invite + lead details. No manual dialing, no follow-up headache.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Pilot Proposition Section -->
+    <!-- Pilot Proposition Section (added "No credit card." on new line as requested) -->
     <section class="pilot-section" id="pilot">
       <div class="container">
         <div class="pilot-block fade-up">
-          <h2>Pilot Before You Pay</h2>
-          <p>
-            We don't sell subscriptions. You test the AI on your leads. If it books showings — you pay. 
-            If not — you don't. Setup takes 24 hours.
-          </p>
+          <h2>Pilot before you pay</h2>
+          <p>We don't sell subscriptions. You test the AI on your leads. If it books showings — you pay. If not — you don't. Setup within 24 hours.</p>
+          <div class="no-credit-card">No credit card.</div>
         </div>
       </div>
     </section>
 
-    <!-- Contact / Footer Section -->
+    <!-- Contact / Footer Section (unchanged) -->
     <section class="contact-section" id="contact">
       <div class="container">
         <div class="contact-content fade-up">
-          <h2>Ready to see it handle your leads?</h2>
+          <h2>Ready to turn listings into showings?</h2>
           <div class="contact-name">Nick</div>
           <div class="contact-links">
-            <!-- WhatsApp contact with phone icon and demo button -->
             <div class="contact-item">
               <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
               </svg>
               <span>WhatsApp</span>
-              <a href="https://wa.me/79029319839" target="_blank" rel="noopener noreferrer" class="contact-link" style="font-weight: 500;">+7 902 931 98 39</a>
-              <a href="https://wa.me/79029319839" target="_blank" rel="noopener noreferrer" class="demo-inline-btn">Request demo</a>
+              <a href="https://wa.me/79029319839" target="_blank" rel="noopener noreferrer" class="contact-link">+7 902 931 98 39</a>
+              <a href="https://wa.me/79029319839" target="_blank" rel="noopener noreferrer" class="demo-inline-btn">Request a demo</a>
             </div>
-            <!-- Telegram updated to @WakanaMK -->
             <div class="contact-item">
               <span>Telegram</span>
               <a href="https://t.me/WakanaMK" target="_blank" rel="noopener noreferrer" class="contact-link">@WakanaMK</a>
             </div>
           </div>
           <div class="contact-note">
-            Discover the pilot version of the product. A 40‑second demo will give you a quick overview — try it risk‑free.
+            Discover the AI voice concierge for your real estate business. One demo, and you'll see how to capture every lead.
           </div>
         </div>
         <hr>
@@ -649,7 +638,7 @@
     </section>
   </main>
 
-  <!-- Minimal JavaScript for scroll animations (Intersection Observer) -->
+  <!-- Intersection Observer for scroll animations -->
   <script>
     (function() {
       const observerOptions = {
@@ -669,7 +658,7 @@
       const fadeElements = document.querySelectorAll('.fade-up');
       fadeElements.forEach(el => observer.observe(el));
 
-      // Smooth scroll for any internal links (if added later)
+      // Smooth scroll for any internal links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           const href = this.getAttribute('href');
