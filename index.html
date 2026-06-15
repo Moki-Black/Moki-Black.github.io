@@ -1,7 +1,5 @@
-@@ -1,676 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -10,9 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Аудиоплееры</title>
   <style>
     /* ----- RESET & BASE ----- */
     * {
@@ -20,7 +15,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -89,8 +83,6 @@
 
     /* ----- HERO SECTION (updated with photo) ----- */
     .hero {
-      background: #f0f0f0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -146,7 +138,6 @@
     .hero-text {
       max-width: 600px;
       text-align: left;
-      padding: 24px 16px;
     }
 
     .hero-text h1 {
@@ -192,8 +183,6 @@
       color: white;
       border: none;
       font-family: 'Inter', sans-serif;
-    h1 {
-      font-size: 20px;
       font-weight: 600;
       font-size: 1rem;
       padding: 0.9rem 2rem;
@@ -206,8 +195,6 @@
       letter-spacing: -0.01em;
       animation: softPulse 3s infinite ease-in-out;
       border: 1px solid rgba(255,255,255,0.1);
-      color: #1a1a1a;
-      margin-bottom: 20px;
       text-align: center;
     }
 
@@ -261,18 +248,13 @@
     }
 
     .cards-grid {
-    .players {
       display: flex;
       flex-direction: column;
       gap: 1.8rem;
-      gap: 16px;
-      width: 100%;
-      max-width: 420px;
     }
 
     .card {
       background: #FFFFFF;
-      background: #fff;
       border-radius: 16px;
       padding: 2rem 1.8rem;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
@@ -304,8 +286,6 @@
     .card p {
       color: #475569;
       font-size: 0.98rem;
-      padding: 16px 18px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     /* ----- PILOT SECTION (updated with "No credit card." on new line) ----- */
@@ -358,25 +338,14 @@
     }
 
     .contact-links {
-    .card-header {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1.25rem;
       margin: 1.5rem 0 2rem;
-      gap: 14px;
-      margin-bottom: 14px;
     }
 
     .contact-item {
-    .num {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #1a1a1a;
-      color: #fff;
-      font-size: 15px;
-      font-weight: 600;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -446,8 +415,6 @@
       font-size: 0.8rem;
       color: #94A3B8;
       margin-top: 1.2rem;
-    .track-info {
-      flex: 1;
     }
 
     /* ----- ANIMATION UTILITIES ----- */
@@ -477,40 +444,18 @@
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 0.7s 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    .track-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: #1a1a1a;
     }
 
     .hero-outcome-init {
       opacity: 0;
       transform: translateY(18px);
       animation: fadeInUp 0.7s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    .track-time {
-      font-size: 12px;
-      color: #888;
-      margin-top: 2px;
     }
 
     .hero-btn-init {
       opacity: 0;
       transform: translateY(15px);
       animation: fadeInUp 0.7s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    .play-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: none;
-      background: #1a1a1a;
-      color: #fff;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: background 0.15s, transform 0.1s;
     }
 
     @keyframes fadeInUp {
@@ -519,8 +464,6 @@
         transform: translateY(0);
       }
     }
-    .play-btn:active { transform: scale(0.93); }
-    .play-btn.playing { background: #555; }
 
     /* ----- RESPONSIVE (tablet/desktop) ----- */
     @media (min-width: 768px) {
@@ -559,12 +502,6 @@
       .card {
         flex: 1;
       }
-    .progress-wrap {
-      height: 6px;
-      background: #e8e8e8;
-      border-radius: 99px;
-      cursor: pointer;
-      position: relative;
     }
 
     @media (min-width: 1024px) {
@@ -575,12 +512,6 @@
         width: 280px;
         height: 280px;
       }
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: #1a1a1a;
-      border-radius: 99px;
-      transition: width 0.1s linear;
     }
   </style>
 </head>
@@ -621,10 +552,8 @@
         <div class="scroll-arrow"></div>
       </div>
     </section>
-  <h1>🎵 Аудиоплееры</h1>
 
     <!-- Second CTA removed completely (no demo-banner) -->
-  <div class="players">
 
     <!-- How It Works Section (updated first step text) -->
     <section class="how-section" id="how">
@@ -662,21 +591,9 @@
             <h3>Showing booked automatically</h3>
             <p>Agent receives calendar invite + lead details. No manual dialing, no follow-up headache.</p>
           </div>
-    <div class="card">
-      <div class="card-header">
-        <div class="num">1</div>
-        <div class="track-info">
-          <div class="track-title">Трек 1</div>
-          <div class="track-time" id="time1">0:00 / –:––</div>
         </div>
-        <button class="play-btn" id="btn1" onclick="togglePlay(1)" aria-label="Воспроизвести трек 1">▶</button>
-      </div>
-      <div class="progress-wrap" onclick="seek(1, event, this)">
-        <div class="progress-bar" id="prog1"></div>
       </div>
     </section>
-      <audio id="audio1" src="https://www.image2url.com/r2/default/audio/1781423495192-a71cd788-b522-4984-896b-53a6ec332f00.mp3" preload="metadata"></audio>
-    </div>
 
     <!-- Pilot Proposition Section (added "No credit card." on new line as requested) -->
     <section class="pilot-section" id="pilot">
@@ -685,21 +602,9 @@
           <h2>Pilot before you pay</h2>
           <p>We don't sell subscriptions. You test the AI on your leads. If it books showings — you pay. If not — you don't. Setup within 24 hours.</p>
           <div class="no-credit-card">No credit card.</div>
-    <div class="card">
-      <div class="card-header">
-        <div class="num">2</div>
-        <div class="track-info">
-          <div class="track-title">Трек 2</div>
-          <div class="track-time" id="time2">0:00 / –:––</div>
         </div>
-        <button class="play-btn" id="btn2" onclick="togglePlay(2)" aria-label="Воспроизвести трек 2">▶</button>
-      </div>
-      <div class="progress-wrap" onclick="seek(2, event, this)">
-        <div class="progress-bar" id="prog2"></div>
       </div>
     </section>
-      <audio id="audio2" src="https://www.image2url.com/r2/default/audio/1781423602385-9779eeff-49f9-4437-80df-302dbc76069c.mp3" preload="metadata"></audio>
-    </div>
 
     <!-- Contact / Footer Section (unchanged) -->
     <section class="contact-section" id="contact">
@@ -728,22 +633,10 @@
         <hr>
         <div class="footer-fineprint" style="text-align: center;">
           Axon AI · Voice assistant for real estate teams
-    <div class="card">
-      <div class="card-header">
-        <div class="num">3</div>
-        <div class="track-info">
-          <div class="track-title">Трек 3</div>
-          <div class="track-time" id="time3">0:00 / –:––</div>
         </div>
-        <button class="play-btn" id="btn3" onclick="togglePlay(3)" aria-label="Воспроизвести трек 3">▶</button>
-      </div>
-      <div class="progress-wrap" onclick="seek(3, event, this)">
-        <div class="progress-bar" id="prog3"></div>
       </div>
     </section>
   </main>
-      <audio id="audio3" src="https://www.image2url.com/r2/default/audio/1781423638487-9c604696-b275-45f7-8bd4-2b7b3bfbbdf3.mp3" preload="metadata"></audio>
-    </div>
 
   <!-- Intersection Observer for scroll animations -->
   <script>
@@ -752,7 +645,6 @@
         threshold: 0.15,
         rootMargin: '0px 0px -30px 0px'
       };
-  </div>
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -762,44 +654,9 @@
           }
         });
       }, observerOptions);
-  <script>
-    function fmt(s) {
-      if (!isFinite(s)) return '–:––';
-      const m = Math.floor(s / 60);
-      const sec = Math.floor(s % 60);
-      return m + ':' + (sec < 10 ? '0' : '') + sec;
-    }
-
-    function togglePlay(n) {
-      const a = document.getElementById('audio' + n);
-      const btn = document.getElementById('btn' + n);
-      [1, 2, 3].forEach(i => {
-        if (i !== n) {
-          document.getElementById('audio' + i).pause();
-          document.getElementById('btn' + i).textContent = '▶';
-          document.getElementById('btn' + i).classList.remove('playing');
-        }
-      });
-      if (a.paused) {
-        a.play();
-        btn.textContent = '⏸';
-        btn.classList.add('playing');
-      } else {
-        a.pause();
-        btn.textContent = '▶';
-        btn.classList.remove('playing');
-      }
-    }
 
       const fadeElements = document.querySelectorAll('.fade-up');
       fadeElements.forEach(el => observer.observe(el));
-    function seek(n, e, bar) {
-      const a = document.getElementById('audio' + n);
-      if (!a.duration) return;
-      const rect = bar.getBoundingClientRect();
-      const ratio = (e.clientX - rect.left) / rect.width;
-      a.currentTime = Math.max(0, Math.min(1, ratio)) * a.duration;
-    }
 
       // Smooth scroll for any internal links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -812,26 +669,8 @@
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
-    [1, 2, 3].forEach(n => {
-      const a = document.getElementById('audio' + n);
-      a.addEventListener('timeupdate', () => {
-        const p = a.duration ? (a.currentTime / a.duration * 100) : 0;
-        document.getElementById('prog' + n).style.width = p.toFixed(1) + '%';
-        document.getElementById('time' + n).textContent = fmt(a.currentTime) + ' / ' + fmt(a.duration);
-      });
-      a.addEventListener('ended', () => {
-        document.getElementById('btn' + n).textContent = '▶';
-        document.getElementById('btn' + n).classList.remove('playing');
-        document.getElementById('prog' + n).style.width = '0%';
-        document.getElementById('time' + n).textContent = '0:00 / ' + fmt(a.duration);
       });
     })();
-      a.addEventListener('loadedmetadata', () => {
-        document.getElementById('time' + n).textContent = '0:00 / ' + fmt(a.duration);
-      });
-    });
   </script>
-
 </body>
-</html>
 </html>
