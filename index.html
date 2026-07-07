@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-  <title>Axon AI · Voice agent for real estate</title>
+  <title>Axon AI · Voice agent for HVAC & Home Service</title>
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -237,61 +237,6 @@
       transform: rotate(45deg);
     }
 
-    /* ----- VIDEO SECTION (fully responsive) ----- */
-    .video-section {
-      padding: 4rem 0 3.5rem;
-      background: white;
-    }
-
-    .video-container {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .demo-badge {
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: #2563EB;
-      background: rgba(37, 99, 235, 0.08);
-      display: inline-block;
-      padding: 0.35rem 1rem;
-      border-radius: 40px;
-      margin-bottom: 1.2rem;
-    }
-
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.2);
-      background: #000;
-      margin-bottom: 1.2rem;
-    }
-
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .video-callout {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #0F172A;
-      background: #F8FAFE;
-      padding: 0.7rem 1.2rem;
-      border-radius: 60px;
-      display: inline-block;
-      margin-top: 0.5rem;
-    }
-
     /* ----- HOW IT WORKS (cards stack on mobile, row on tablet) ----- */
     .how-section {
       padding: 4rem 0;
@@ -419,7 +364,7 @@
       background: #1D4ED8;
     }
 
-    .whatsapp-icon, .telegram-icon {
+    .telegram-icon {
       width: 20px;
       height: 20px;
       flex-shrink: 0;
@@ -553,9 +498,6 @@
       .card {
         flex: 1;
       }
-      .video-callout {
-        font-size: 1.3rem;
-      }
     }
 
     @media (min-width: 1024px) {
@@ -597,25 +539,22 @@
   </header>
 
   <main>
-    <!-- Hero Section: updated text, removed extra lines, only one clean social proof line -->
+    <!-- Hero Section: HVAC & Home Service focused -->
     <section class="hero">
       <div class="container hero-content">
         <div class="hero-photo-card">
           <img class="agent-photo" src="https://i.ibb.co/ymWRSFfB/z-Q-s-O3-Fmxz-ch-Juct-TJuy-JTQOio-H4-XUz6-Aq-Z36uvt-Zw-Z2-BFfi24sho-Pr-Kx4q-Lls9-FRVGbu-B6pfjwr-Gp-Iem-C.jpg" alt="Nick - AI Concierge">
-          <!-- Updated caption: removed Dubai, changed Miami to Florida, added Texas and Ohio -->
-          <div class="photo-caption">For agents in Florida, Texas, Ohio, SoCal · Since 2024</div>
+          <div class="photo-caption">For HVAC & home service pros across the US · Since 2024</div>
         </div>
         
         <div class="hero-text">
-          <h1 class="hero-title-init">I build AI concierges that answer your listings in <span style="color:#2563EB;">15 seconds</span>. So you never lose a buyer to voicemail.</h1>
+          <h1 class="hero-title-init">I build AI concierges that answer your service calls in <span style="color:#2563EB;">15 seconds</span>. So you never lose a customer to voicemail.</h1>
           
-          <!-- Single clean social proof line as requested -->
           <ul class="outcome-list hero-outcome-init">
-            <li><span class="check-mark">📈</span> Actively rolling out across the United States — trusted by high-volume mass-market realtors.</li>
+            <li><span class="check-mark">📈</span> Actively rolling out across the United States — trusted by high-volume HVAC and home service companies.</li>
           </ul>
           
-          <!-- CTA: inside the button "DEMO" is forced white (btn-demo-white) -->
-          <a href="https://wa.me/79029319839?text=DEMO" target="_blank" rel="noopener noreferrer" class="cta-button hero-btn-init">
+          <a href="https://t.me/spcxtop?text=DEMO" target="_blank" rel="noopener noreferrer" class="cta-button hero-btn-init">
             Send <span class="btn-demo-white">"DEMO"</span> — I'll reply with your voice demo
           </a>
         </div>
@@ -623,19 +562,6 @@
       <div class="scroll-indicator">
         <span>SCROLL</span>
         <div class="scroll-arrow"></div>
-      </div>
-    </section>
-
-    <!-- Video Section with YouTube embed -->
-    <section class="video-section" id="video-demo">
-      <div class="container video-container">
-        <div class="demo-badge fade-up">🎬 60s Demo Video</div>
-        <div class="video-wrapper fade-up">
-          <iframe src="https://www.youtube.com/embed/-oFFOcLozoY?autoplay=0&rel=0&modestbranding=1" title="Axon AI Demo Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-callout fade-up">
-          💬 Want it to call you back in <strong>15 seconds</strong>? DM me <span class="demo-highlight">"DEMO"</span>
-        </div>
       </div>
     </section>
 
@@ -651,7 +577,7 @@
               <line x1="16" y1="13" x2="8" y2="13" />
               <line x1="16" y1="17" x2="8" y2="17" />
             </svg>
-            <h3>Buyer calls, texts, or fills a form.</h3>
+            <h3>Customer calls, texts, or fills a form.</h3>
             <p>Lead contacts you — any channel. AI concierge triggers instantly.</p>
           </div>
           <div class="card fade-up card-delay-2">
@@ -659,7 +585,7 @@
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
             <h3>15‑second AI voice call</h3>
-            <p>AI answers with listing details, qualifies interest, instantly proposes a showing.</p>
+            <p>AI answers with service details, qualifies the need, instantly schedules a technician visit.</p>
           </div>
           <div class="card fade-up card-delay-3">
             <svg class="card-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -669,8 +595,8 @@
               <line x1="3" y1="10" x2="21" y2="10" />
               <polyline points="9 16 11 18 15 14" />
             </svg>
-            <h3>Showing booked automatically</h3>
-            <p>Agent receives calendar invite + lead details. No manual follow-up.</p>
+            <h3>Service appointment booked automatically</h3>
+            <p>Business owner receives calendar invite + customer details. No manual follow-up.</p>
           </div>
         </div>
       </div>
@@ -681,31 +607,20 @@
       <div class="container">
         <div class="pilot-block fade-up">
           <h2>Pilot before you pay</h2>
-          <p>Test the AI on your leads. If it books showings — you pay. If not — you don't. Setup within 24 hours.</p>
+          <p>Test the AI on your leads. If it books appointments — you pay. If not — you don't. Setup within 24 hours.</p>
           <div class="no-credit-card">No credit card.</div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section: NO phone number visible, NO telegram username visible, only functional demo buttons + social links -->
+    <!-- Contact Section -->
     <section class="contact-section" id="contact">
       <div class="container">
         <div class="contact-content fade-up">
-          <h2>Ready to turn listings into showings?</h2>
+          <h2>Ready to turn calls into appointments?</h2>
           <div class="contact-name">Nick</div>
           <div class="contact-links">
-            <!-- WhatsApp button - no number displayed, DEMO inside is white -->
-            <div class="contact-item">
-              <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" style="color:#25D366;">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-              </svg>
-              <span style="font-weight:500;">WhatsApp</span>
-              <a href="https://wa.me/79029319839?text=DEMO" target="_blank" rel="noopener noreferrer" class="demo-btn">
-                Send <span class="btn-demo-white">"DEMO"</span>
-              </a>
-            </div>
-
-            <!-- Telegram button - no username visible, only functional button -->
+            <!-- Telegram button only -->
             <div class="contact-item">
               <svg class="telegram-icon" viewBox="0 0 24 24" fill="currentColor" style="color:#26A5E4;">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.02-.14-.05-.2s-.18-.04-.26-.02c-.11.03-1.87 1.19-5.28 3.49-.5.34-.95.51-1.36.5-.45-.01-1.31-.25-1.95-.46-.78-.26-1.4-.4-1.35-.85.03-.24.36-.48.99-.74 3.94-1.71 6.57-2.84 7.88-3.39 3.76-1.58 4.54-1.85 5.05-1.86.11 0 .36.03.52.2.13.14.17.33.19.51.01.17.01.39-.04.6z"/>
@@ -717,19 +632,11 @@
             </div>
           </div>
 
-          <!-- Social links: Instagram, Facebook (fixed correct working link), X -->
+          <!-- Social links: Instagram only with updated link -->
           <div class="social-row">
-            <a href="https://www.instagram.com/nick_pilgui/" target="_blank" rel="noopener noreferrer" class="social-icon-link">
+            <a href="https://www.instagram.com/veagirl0305/" target="_blank" rel="noopener noreferrer" class="social-icon-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:#E4405F;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="none" fill="currentColor"/><circle cx="12" cy="12" r="4" fill="white"/><circle cx="18" cy="6" r="1.2" fill="white"/></svg>
               Instagram
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61590679765292" target="_blank" rel="noopener noreferrer" class="social-icon-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:#1877F2;"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-              Facebook
-            </a>
-            <a href="https://x.com/MokiMeneger" target="_blank" rel="noopener noreferrer" class="social-icon-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:#000000;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              X (Twitter)
             </a>
           </div>
 
@@ -739,7 +646,7 @@
         </div>
         <hr>
         <div class="footer-fineprint">
-          Axon AI · Voice assistant for real estate teams
+          Axon AI · Voice assistant for HVAC and home service teams
         </div>
       </div>
     </section>
