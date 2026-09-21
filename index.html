@@ -553,4 +553,52 @@
             </a>
             <a href="https://www.instagram.com/nickpilgui/" target="_blank" rel="noopener noreferrer" class="social-icon-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:#E4405F;" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="none" fill="currentColor"/>
+                <circle cx="12" cy="12" r="4" fill="white"/>
+                <circle cx="18" cy="6" r="1.2" fill="white"/>
+              </svg>
+              Instagram
+            </a>
+          </div>
+
+          <div class="contact-note">
+            📲 DM me <span class="demo-highlight">"DEMO"</span> on any platform — I reply within minutes.
+          </div>
+        </div>
+
+        <hr>
+        <div class="footer-fineprint">
+          Voice assistant for HVAC and home service teams
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function() {
+      const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -20px 0px' };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === "#" || !href) return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
