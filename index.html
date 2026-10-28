@@ -158,18 +158,8 @@ footer a{color:var(--ink);font-weight:600}
           <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(206) 555-0123" required></div>
         <div class="f"><label for="address">Address</label>
           <input id="address" name="address" type="text" autocomplete="street-address" placeholder="Street, city" required></div>
-        <div class="f"><label for="service">Service</label>
-          <select id="service" name="service" required>
-            <option value="" disabled selected>Choose a service</option>
-            <option>TV Mounting</option>
-            <option>Drywall Patching</option>
-            <option>Small Remodeling</option>
-            <option>Door Handles &amp; Locks</option>
-            <option>Caulking &amp; Weatherproofing</option>
-            <option>Painting &amp; Touch-ups</option>
-            <option>Hanging Shelves / Mirrors</option>
-            <option>General Home Repairs</option>
-          </select></div>
+        <div class="f"><label for="service">What do you need done?</label>
+          <input id="service" name="service" type="text" maxlength="200" placeholder="e.g. Mount a 55-inch TV and hang 2 shelves" required></div>
         <div class="f"><label for="when">Preferred date &amp; time</label>
           <input id="when" name="when" type="datetime-local" required></div>
         <div class="hp" aria-hidden="true"><label>Leave empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
